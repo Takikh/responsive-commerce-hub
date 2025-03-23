@@ -1,17 +1,22 @@
 
 import { useState } from "react";
 import { 
-  Slider, 
+  Slider
+} from "@/components/ui/slider";
+import { 
   Select, 
   SelectContent, 
   SelectItem, 
   SelectTrigger, 
-  SelectValue,
-  Checkbox,
-  Label,
-} from "@/components/ui";
+  SelectValue 
+} from "@/components/ui/select";
+import {
+  Checkbox
+} from "@/components/ui/checkbox";
+import {
+  Label
+} from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { Category, SortOption } from "@/lib/types";
 import { 
   Collapsible,
   CollapsibleContent,
