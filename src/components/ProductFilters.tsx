@@ -23,6 +23,7 @@ import {
   CollapsibleTrigger
 } from "@/components/ui/collapsible";
 import { Filter, ChevronDown, ChevronUp } from "lucide-react";
+import { Category, SortOption } from "@/lib/types";
 
 interface ProductFiltersProps {
   categories: { value: Category; label: string }[];
@@ -96,20 +97,7 @@ const ProductFilters = ({
           <Filter className="h-5 w-5" /> Filtres
         </h2>
         
-        {/* Mobile toggle */}
-        <CollapsibleTrigger
-          asChild
-          onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden"
-        >
-          <Button variant="ghost" size="sm">
-            {isOpen ? (
-              <ChevronUp className="h-4 w-4" />
-            ) : (
-              <ChevronDown className="h-4 w-4" />
-            )}
-          </Button>
-        </CollapsibleTrigger>
+        {/* Mobile collapsible control - The important fix is moving this inside Collapsible */}
       </div>
       
       <Collapsible
@@ -117,6 +105,19 @@ const ProductFilters = ({
         onOpenChange={setIsOpen}
         className="lg:block"
       >
+        {/* Mobile toggle button - Now correctly inside Collapsible */}
+        <div className="flex justify-end lg:hidden mb-4">
+          <CollapsibleTrigger asChild>
+            <Button variant="ghost" size="sm" onClick={() => setIsOpen(!isOpen)}>
+              {isOpen ? (
+                <ChevronUp className="h-4 w-4" />
+              ) : (
+                <ChevronDown className="h-4 w-4" />
+              )}
+            </Button>
+          </CollapsibleTrigger>
+        </div>
+        
         <CollapsibleContent className="lg:block space-y-6">
           {/* Sort */}
           <div>
