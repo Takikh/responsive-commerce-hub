@@ -35,7 +35,7 @@ const Index = () => {
     <div className="space-y-16 max-w-full">
       {/* Hero section */}
       <section className="relative">
-        <div className="bg-gradient-to-r from-primary/90 to-primary rounded-3xl overflow-hidden">
+        <div className="bg-gradient-to-r from-accent/90 to-accent rounded-3xl overflow-hidden">
           <div className="container mx-auto px-6 py-16 sm:py-24">
             <div className="max-w-3xl">
               <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6 leading-tight">
@@ -49,7 +49,7 @@ const Index = () => {
                 <Button 
                   size="lg" 
                   asChild
-                  className="bg-white text-primary hover:bg-white/90"
+                  className="bg-white text-accent hover:bg-white/90"
                 >
                   <Link to="/products">
                     Voir les produits
@@ -145,7 +145,7 @@ const Index = () => {
       </section>
       
       {/* CTA */}
-      <section className="bg-secondary rounded-2xl p-10 text-center my-16 mx-4">
+      <section className="bg-gradient-to-r from-accent/20 to-secondary/80 rounded-2xl p-10 text-center my-16 mx-4">
         <h2 className="text-2xl sm:text-3xl font-bold mb-4">Prêt à découvrir nos produits ?</h2>
         <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
           Rejoignez des milliers de clients satisfaits et découvrez notre vaste sélection de produits.
