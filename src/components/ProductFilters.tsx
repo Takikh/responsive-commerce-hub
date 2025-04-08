@@ -173,16 +173,16 @@ const ProductFilters = ({
               </div>
               <div className="flex justify-between text-sm mt-2">
                 <span>
-                  {new Intl.NumberFormat('fr-FR', {
+                  {new Intl.NumberFormat('fr-DZ', {
                     style: 'currency',
-                    currency: 'EUR',
-                  }).format(priceRange[0])}
+                    currency: 'DZD',
+                  }).format(priceRange[0] * 145)}
                 </span>
                 <span>
-                  {new Intl.NumberFormat('fr-FR', {
+                  {new Intl.NumberFormat('fr-DZ', {
                     style: 'currency',
-                    currency: 'EUR',
-                  }).format(priceRange[1])}
+                    currency: 'DZD',
+                  }).format(priceRange[1] * 145)}
                 </span>
               </div>
             </div>

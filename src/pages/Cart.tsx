@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -88,10 +87,10 @@ const Cart = () => {
               <div className="flex justify-between">
                 <span className="text-muted-foreground">Sous-total</span>
                 <span>
-                  {new Intl.NumberFormat('fr-FR', {
+                  {new Intl.NumberFormat('fr-DZ', {
                     style: 'currency',
-                    currency: 'EUR',
-                  }).format(totalPrice)}
+                    currency: 'DZD',
+                  }).format(totalPrice * 145)}
                 </span>
               </div>
               <div className="flex justify-between">
@@ -99,30 +98,30 @@ const Cart = () => {
                 <span>
                   {totalPrice >= 50
                     ? 'Gratuite'
-                    : new Intl.NumberFormat('fr-FR', {
+                    : new Intl.NumberFormat('fr-DZ', {
                         style: 'currency',
-                        currency: 'EUR',
-                      }).format(4.99)}
+                        currency: 'DZD',
+                      }).format(723.55)}
                 </span>
               </div>
               <div className="flex justify-between">
                 <span className="text-muted-foreground">Taxes</span>
                 <span>
-                  {new Intl.NumberFormat('fr-FR', {
+                  {new Intl.NumberFormat('fr-DZ', {
                     style: 'currency',
-                    currency: 'EUR',
-                  }).format(totalPrice * 0.2)}
+                    currency: 'DZD',
+                  }).format(totalPrice * 0.2 * 145)}
                 </span>
               </div>
               <Separator />
               <div className="flex justify-between font-bold text-lg">
                 <span>Total</span>
                 <span>
-                  {new Intl.NumberFormat('fr-FR', {
+                  {new Intl.NumberFormat('fr-DZ', {
                     style: 'currency',
-                    currency: 'EUR',
+                    currency: 'DZD',
                   }).format(
-                    totalPrice + (totalPrice >= 50 ? 0 : 4.99) + totalPrice * 0.2
+                    (totalPrice * 145) + (totalPrice >= 50 ? 0 : 723.55) + (totalPrice * 0.2 * 145)
                   )}
                 </span>
               </div>
@@ -163,7 +162,7 @@ const Cart = () => {
                 </div>
                 <div className="flex items-center space-x-2">
                   <PackageCheck className="w-4 h-4 text-primary" />
-                  <span>Livraison gratuite à partir de 50€</span>
+                  <span>Livraison gratuite à partir de 7250 DZD</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <PackageCheck className="w-4 h-4 text-primary" />

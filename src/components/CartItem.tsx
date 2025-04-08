@@ -50,10 +50,10 @@ const CartItem = ({ item }: CartItemProps) => {
           <h3 className="font-medium">{product.name}</h3>
         </Link>
         <p className="text-sm text-muted-foreground mt-1">
-          {new Intl.NumberFormat('fr-FR', { 
+          {new Intl.NumberFormat('fr-DZ', { 
             style: 'currency',
-            currency: 'EUR' 
-          }).format(product.price)}
+            currency: 'DZD' 
+          }).format(product.price * 145)}
         </p>
       </div>
       

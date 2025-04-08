@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Product } from "@/lib/types";
@@ -35,7 +34,6 @@ const ProductDetail = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
   
   useEffect(() => {
-    // Simulate API call
     const timer = setTimeout(() => {
       const foundProduct = MOCK_PRODUCTS.find(p => p.id === id);
       
@@ -71,7 +69,6 @@ const ProductDetail = () => {
       })
       .catch(error => console.log('Error sharing', error));
     } else {
-      // Fallback if Web Share API not supported
       navigator.clipboard.writeText(window.location.href);
       toast.success("Lien copié dans le presse-papier");
     }
@@ -174,10 +171,10 @@ const ProductDetail = () => {
           </div>
           
           <div className="text-3xl font-bold">
-            {new Intl.NumberFormat('fr-FR', {
+            {new Intl.NumberFormat('fr-DZ', {
               style: 'currency',
-              currency: 'EUR',
-            }).format(product.price)}
+              currency: 'DZD',
+            }).format(product.price * 145)}
           </div>
           
           <p className="text-muted-foreground">{product.description}</p>
@@ -250,7 +247,7 @@ const ProductDetail = () => {
           <div className="space-y-3 pt-4">
             <div className="flex items-center text-sm">
               <Truck className="w-4 h-4 mr-2 text-primary" />
-              <span>Livraison gratuite à partir de 50€</span>
+              <span>Livraison gratuite à partir de 7250 DZD</span>
             </div>
             <div className="flex items-center text-sm">
               <ShieldCheck className="w-4 h-4 mr-2 text-primary" />

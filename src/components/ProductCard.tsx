@@ -66,7 +66,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
           </p>
           <div className="mt-auto pt-4">
             <span className="font-semibold text-lg">
-              {new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(product.price)}
+              {new Intl.NumberFormat('fr-DZ', { style: 'currency', currency: 'DZD' }).format(product.price * 145)}
             </span>
           </div>
         </CardContent>
