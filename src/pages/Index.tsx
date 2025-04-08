@@ -59,7 +59,7 @@ const Index = () => {
                   size="lg" 
                   variant="outline"
                   asChild
-                  className="border-white text-white hover:bg-white/10"
+                  className="border-white text-white bg-accent/30 hover:bg-white/20 hover:text-white"
                 >
                   <Link to="/signup">
                     Créer un compte
