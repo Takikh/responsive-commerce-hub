@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -78,6 +79,18 @@
   
   .text-gradient {
     @apply bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent;
+  }
+  
+  .center-content {
+    @apply flex items-center justify-center;
+  }
+  
+  .container-centered {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  
+  .responsive-padding {
+    @apply px-4 py-4 sm:px-6 sm:py-6 md:px-8 md:py-8;
   }
 }
 

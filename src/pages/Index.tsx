@@ -32,11 +32,11 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="space-y-16">
+    <div className="space-y-16 max-w-full">
       {/* Hero section */}
       <section className="relative">
         <div className="bg-gradient-to-r from-primary/90 to-primary rounded-3xl overflow-hidden">
-          <div className="container px-6 py-16 sm:py-24">
+          <div className="container mx-auto px-6 py-16 sm:py-24">
             <div className="max-w-3xl">
               <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6 leading-tight">
                 Découvrez notre collection de produits exclusifs
@@ -79,7 +79,7 @@ const Index = () => {
       
       {/* Featured Products */}
       <section>
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex items-center justify-between mb-8 px-4">
           <h2 className="text-2xl font-bold">Produits à la une</h2>
           <Link to="/products" className="flex items-center text-primary hover:underline">
             Voir tout <ChevronRight className="w-4 h-4 ml-1" />
@@ -90,7 +90,7 @@ const Index = () => {
       </section>
       
       {/* Features */}
-      <section className="py-12">
+      <section className="py-12 px-4">
         <h2 className="text-2xl font-bold text-center mb-12">Pourquoi nous choisir ?</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -145,7 +145,7 @@ const Index = () => {
       </section>
       
       {/* CTA */}
-      <section className="bg-secondary rounded-2xl p-10 text-center my-16">
+      <section className="bg-secondary rounded-2xl p-10 text-center my-16 mx-4">
         <h2 className="text-2xl sm:text-3xl font-bold mb-4">Prêt à découvrir nos produits ?</h2>
         <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
           Rejoignez des milliers de clients satisfaits et découvrez notre vaste sélection de produits.

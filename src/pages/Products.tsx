@@ -82,7 +82,7 @@ const Products = () => {
   };
   
   return (
-    <div>
+    <div className="container mx-auto px-4">
       <div className="mb-8">
         <h1 className="text-3xl font-bold mb-4">Tous nos produits</h1>
         <p className="text-muted-foreground">
@@ -91,7 +91,7 @@ const Products = () => {
       </div>
       
       <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-6">
-        <div>
+        <div className="w-full lg:w-[300px]">
           <ProductFilters
             categories={categoryOptions}
             sortOptions={sortOptions}
