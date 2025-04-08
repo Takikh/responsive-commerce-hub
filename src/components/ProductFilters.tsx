@@ -91,24 +91,20 @@ const ProductFilters = ({
   };
 
   return (
-    <div className="mb-8 bg-white border rounded-lg p-4 shadow-sm">
-      <div className="flex items-center justify-between mb-4">
-        <h2 className="text-lg font-medium flex items-center gap-2">
-          <Filter className="h-5 w-5" /> Filtres
-        </h2>
-        
-        {/* Mobile collapsible control - The important fix is moving this inside Collapsible */}
-      </div>
-      
+    <div className="bg-white border rounded-lg p-4 shadow-sm">
       <Collapsible
         open={isOpen}
         onOpenChange={setIsOpen}
-        className="lg:block"
+        className="w-full"
       >
-        {/* Mobile toggle button - Now correctly inside Collapsible */}
-        <div className="flex justify-end lg:hidden mb-4">
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-lg font-medium flex items-center gap-2">
+            <Filter className="h-5 w-5" /> Filtres
+          </h2>
+          
+          {/* Toggle button for mobile and desktop */}
           <CollapsibleTrigger asChild>
-            <Button variant="ghost" size="sm" onClick={() => setIsOpen(!isOpen)}>
+            <Button variant="ghost" size="sm" className="h-9 w-9 p-0">
               {isOpen ? (
                 <ChevronUp className="h-4 w-4" />
               ) : (
@@ -118,89 +114,87 @@ const ProductFilters = ({
           </CollapsibleTrigger>
         </div>
         
-        <CollapsibleContent className="lg:block space-y-6">
-          {/* Sort */}
-          <div>
-            <Label htmlFor="sort-by" className="mb-2 block">
-              Trier par
-            </Label>
-            <Select value={sortBy} onValueChange={handleSortChange}>
-              <SelectTrigger id="sort-by">
-                <SelectValue placeholder="Trier par" />
-              </SelectTrigger>
-              <SelectContent>
-                {sortOptions.map((option) => (
-                  <SelectItem key={option.value} value={option.value}>
-                    {option.label}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-          
-          {/* Categories */}
-          <div className="space-y-2">
-            <Label className="mb-2 block">Catégories</Label>
+        <CollapsibleContent className="w-full space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Sort */}
+            <div>
+              <Label htmlFor="sort-by" className="mb-2 block">
+                Trier par
+              </Label>
+              <Select value={sortBy} onValueChange={handleSortChange}>
+                <SelectTrigger id="sort-by">
+                  <SelectValue placeholder="Trier par" />
+                </SelectTrigger>
+                <SelectContent>
+                  {sortOptions.map((option) => (
+                    <SelectItem key={option.value} value={option.value}>
+                      {option.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+            
+            {/* Categories */}
             <div className="space-y-2">
-              {categories.map((category) => (
-                <div key={category.value} className="flex items-center space-x-2">
-                  <Checkbox
-                    id={`category-${category.value}`}
-                    checked={selectedCategories.includes(category.value)}
-                    onCheckedChange={(checked) =>
-                      handleCategoryChange(category.value, checked as boolean)
-                    }
-                  />
-                  <Label
-                    htmlFor={`category-${category.value}`}
-                    className="cursor-pointer"
-                  >
-                    {category.label}
-                  </Label>
-                </div>
-              ))}
+              <Label className="mb-2 block">Catégories</Label>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                {categories.map((category) => (
+                  <div key={category.value} className="flex items-center space-x-2">
+                    <Checkbox
+                      id={`category-${category.value}`}
+                      checked={selectedCategories.includes(category.value)}
+                      onCheckedChange={(checked) =>
+                        handleCategoryChange(category.value, checked as boolean)
+                      }
+                    />
+                    <Label
+                      htmlFor={`category-${category.value}`}
+                      className="cursor-pointer"
+                    >
+                      {category.label}
+                    </Label>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-          
-          {/* Price range */}
-          <div>
-            <Label className="mb-2 block">Prix</Label>
-            <div className="pt-4 px-2">
-              <Slider
-                defaultValue={priceRange}
-                min={minPrice}
-                max={maxPrice}
-                step={1}
-                onValueChange={handlePriceChange}
-              />
-            </div>
-            <div className="flex justify-between text-sm mt-2">
-              <span>
-                {new Intl.NumberFormat('fr-FR', {
-                  style: 'currency',
-                  currency: 'EUR',
-                }).format(priceRange[0])}
-              </span>
-              <span>
-                {new Intl.NumberFormat('fr-FR', {
-                  style: 'currency',
-                  currency: 'EUR',
-                }).format(priceRange[1])}
-              </span>
+            
+            {/* Price range */}
+            <div>
+              <Label className="mb-2 block">Prix</Label>
+              <div className="pt-4 px-2">
+                <Slider
+                  defaultValue={priceRange}
+                  min={minPrice}
+                  max={maxPrice}
+                  step={1}
+                  onValueChange={handlePriceChange}
+                />
+              </div>
+              <div className="flex justify-between text-sm mt-2">
+                <span>
+                  {new Intl.NumberFormat('fr-FR', {
+                    style: 'currency',
+                    currency: 'EUR',
+                  }).format(priceRange[0])}
+                </span>
+                <span>
+                  {new Intl.NumberFormat('fr-FR', {
+                    style: 'currency',
+                    currency: 'EUR',
+                  }).format(priceRange[1])}
+                </span>
+              </div>
             </div>
           </div>
           
           {/* Action buttons */}
-          <div className="flex flex-col sm:flex-row gap-2 pt-2">
-            <Button onClick={applyFilters} className="flex-1">
-              Appliquer
-            </Button>
-            <Button
-              variant="outline"
-              onClick={resetFilters}
-              className="flex-1"
-            >
+          <div className="flex flex-row justify-end gap-2 pt-2">
+            <Button onClick={resetFilters} variant="outline" className="w-24">
               Réinitialiser
+            </Button>
+            <Button onClick={applyFilters} className="w-24">
+              Appliquer
             </Button>
           </div>
         </CollapsibleContent>

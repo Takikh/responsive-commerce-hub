@@ -90,21 +90,19 @@ const Products = () => {
         </p>
       </div>
       
-      <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-6">
-        <div className="w-full lg:w-[300px]">
-          <ProductFilters
-            categories={categoryOptions}
-            sortOptions={sortOptions}
-            minPrice={minPrice}
-            maxPrice={maxPrice}
-            onFilterChange={handleFilterChange}
-          />
-        </div>
-        
-        <div>
-          <ProductList products={filteredProducts} isLoading={isLoading} />
-        </div>
+      {/* Filters section - now full width instead of in a sidebar */}
+      <div className="mb-8">
+        <ProductFilters
+          categories={categoryOptions}
+          sortOptions={sortOptions}
+          minPrice={minPrice}
+          maxPrice={maxPrice}
+          onFilterChange={handleFilterChange}
+        />
       </div>
+      
+      {/* Products grid - now full width */}
+      <ProductList products={filteredProducts} isLoading={isLoading} />
     </div>
   );
 };
