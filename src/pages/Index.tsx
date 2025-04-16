@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { 
@@ -59,7 +58,7 @@ const Index = () => {
                   size="lg" 
                   variant="outline"
                   asChild
-                  className="border-white text-white bg-accent/30 hover:bg-white/20 hover:text-white"
+                  className="border-white text-white bg-white/20 hover:bg-white/30"
                 >
                   <Link to="/signup">
                     Créer un compte
